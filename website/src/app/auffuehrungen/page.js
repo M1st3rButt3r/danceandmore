@@ -14,6 +14,9 @@ export default async function Auffuehrungen(props) {
         props.searchParams.modal != undefined && shows.filter((show) => Number(props.searchParams.modal) == show.id).length > 0? 
           <Modal 
             closeHref="auffuehrungen" 
+            date = {
+              shows.filter((show) => Number(props.searchParams.modal) == show.id)[0].year 
+            }
             title={
               shows.filter((show) => Number(props.searchParams.modal) == show.id)[0].title 
             }

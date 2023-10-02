@@ -2,8 +2,8 @@ import Image from "next/image"
 
 export default function Navbar(props) {
     return (
-        <div className="fixed z-50">
-            <div className="w-screen h-20 bg-slate-100 absolute z-50 flex justify-between items-center shadow-lg rounded-b-md">
+        <div className="fixed z-30">
+            <div className="w-screen h-20 bg-slate-100 relative z-30 flex justify-between items-center shadow-lg rounded-b-md">
                 <div className="px-5">
                     <Image
                         src="/logo.webp"

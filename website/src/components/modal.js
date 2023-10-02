@@ -16,16 +16,16 @@ export default function Modal(props) {
     )
 
     return (
-        <div className="flex fixed top-0 bottom-0 left-0 right-0 z-10">
+        <div className="flex fixed top-0 bottom-0 left-0 right-0 z-50">
             
-            <div className="fixed w-full h-full bg-slate-950 opacity-25 z-40"></div>
-            <div className="p-12 rounded-lg relative m-auto sm:h-4/5 align sm:w-2/3 h-full w-full small-scrollbar bg-slate-100 z-40 overflow-hidden">
+            <Link scroll={false} href={props.closeHref}><div className="cursor-default fixed w-full h-full bg-slate-950 opacity-25 z-40"></div></Link>
+            <div className="p-12 pt-0 rounded-lg relative m-auto sm:h-4/5 align sm:w-2/3 h-full w-full small-scrollbar bg-slate-100 z-40 overflow-hidden">
                 <Link scroll={false} href={props.closeHref} className="absolute top-5 right-6 mr">
                     <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
                 </Link>
                 <div className="h-1/6">
-                    <p className="text-slate-400 font-semibold mb-3">Winter 2022</p>
-                    <h3 className="text-3xl font-bold mb-2">{props.title}</h3>
+                    <p className="text-slate-400 font-semibold pt-10 mb-1">{props.date}</p>
+                    <h3 className="text-3xl font-bold mb-0">{props.title}</h3>
                 </div>
 
                 <div className="overflow-y-scroll h-5/6 w-full small-scrollbar">
