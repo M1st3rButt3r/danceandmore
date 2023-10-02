@@ -1,12 +1,9 @@
-import Card from "@/components/card";
+
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-import Image from "next/image";
-import getShows from "@/requests";
-import Modal from "@/components/modal";
 import ImageCard from "@/components/imageCard";
 
-export default async function Auffuehrungen() {
+export default async function Angebote() {
   return (
     <div>
         

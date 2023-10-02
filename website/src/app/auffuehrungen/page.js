@@ -6,22 +6,22 @@ import getShows from "@/requests";
 import Modal from "@/components/modal";
 
 export default async function Auffuehrungen(props) {
-    const shows = await getShows();
+  const shows = await getShows();
   return (
-    <div>  
+    <div> 
       <Navbar active={2}/>
       {
         props.searchParams.modal != undefined && shows.filter((show) => Number(props.searchParams.modal) == show.id).length > 0? 
           <Modal 
             closeHref="auffuehrungen" 
             title={
-              shows.filter((show) => Number(props.searchParams.modal) == show.id)[0].attributes.Title 
+              shows.filter((show) => Number(props.searchParams.modal) == show.id)[0].title 
             }
             text={
-              shows.filter((show) => Number(props.searchParams.modal) == show.id)[0].attributes.Text
+              shows.filter((show) => Number(props.searchParams.modal) == show.id)[0].text
             }
-            imageUrl={
-              "http://127.0.0.1:1337" + shows.filter((show) => Number(props.searchParams.modal) == show.id)[0].attributes.Cover.data.attributes.formats.medium.url
+            images={
+              shows.filter((show) => Number(props.searchParams.modal) == show.id)[0].images
             }
           />
         :
@@ -36,7 +36,7 @@ export default async function Auffuehrungen(props) {
             
 
             {shows.map((show) => {
-                return <Card href={"?modal="+ show.id} imageUrl={"http://127.0.0.1:1337" + show.attributes.Cover.data.attributes.formats.medium.url}  right={show.id%2==0} key={show.id} title={show.attributes.Title} abstract={show.attributes.Text.substr(0, 200) + "..."} date={show.attributes.Year}/>
+                return <Card href={"?modal="+ show.id} imageUrl={show.images[0].url}  right={show.id%2==0} key={show.id} title={show.title} abstract={show.text.substr(0, 200) + "..."} date={show.year}/>
             })}
         </div>
       </div>

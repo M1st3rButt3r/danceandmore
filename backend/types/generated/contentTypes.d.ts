@@ -378,7 +378,7 @@ export interface ApiShowShow extends Schema.CollectionType {
     Text: Attribute.Text;
     Year: Attribute.String;
     Date: Attribute.Date;
-    Cover: Attribute.Media;
+    Images: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

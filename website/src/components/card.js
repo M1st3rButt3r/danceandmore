@@ -3,8 +3,8 @@ import Link from "next/link"
 
 export default function Card(props) {
     return (
-        <div className="hover:scale-105 transition-transform bg-slate-100 rounded-2xl md:p-10 p-5 flex flex-col lg:flex-row flex-initial max-w-6xl mx-auto w-full">
-            <div className={" rounded-lg m-auto  xl:w-96 xl:h-96 sm:w-80 sm:h-80 w-60 h-60  shrink-0 overflow-hidden" + (props.right == true? " lg:hidden" : "")}>
+        <div className="relative z-0 hover:scale-105 transition-transform bg-slate-100 rounded-2xl md:p-10 p-5 flex flex-col lg:flex-row flex-initial max-w-6xl mx-auto w-full">
+            <div className={" rounded-lg m-auto  xl:w-96 xl:h-96 sm:w-80 sm:h-80 w-60 h-60   shrink-0 overflow-hidden" + (props.right == true? " lg:hidden" : "")}>
             <Image
                 src={props.imageUrl}
                 width={0}

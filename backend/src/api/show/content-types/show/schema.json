@@ -24,9 +24,9 @@
     "Date": {
       "type": "date"
     },
-    "Cover": {
+    "Images": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "allowedTypes": [
         "images"
