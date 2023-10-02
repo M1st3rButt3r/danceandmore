@@ -11,7 +11,7 @@ export default async function Offers() {
     <div>
         
       <Navbar active={1}/>
-      <div className="w-screen h-20"></div>
+      <div className="w-full h-20"></div>
       <div className="h-auto md:w-2/3 w-4/5 m-auto">
         <h2 className="md:text-5xl text-3xl font-bold text-center mt-10 mb-4">{offerPage.title}</h2>
         <p className="text-justify mb-12">{offerPage.text}</p>
