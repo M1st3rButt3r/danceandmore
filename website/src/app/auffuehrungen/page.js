@@ -40,7 +40,7 @@ export default async function Auffuehrungen(props) {
             
 
             {shows.map((show) => {
-                return <Card href={"?modal="+ show.id} imageUrl={show.images[0].url}  right={show.id%2==0} key={show.id} title={show.title} abstract={show.text.substr(0, 200) + "..."} date={show.year}/>
+                return <Card href={"?modal="+ show.id} imageUrl={show.images[0].url}  right={show.odd} key={show.id} title={show.title} abstract={show.text.substr(0, 200) + "..."} date={show.year}/>
             })}
         </div>
       </div>

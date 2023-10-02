@@ -22,6 +22,7 @@ async function getShows() {
                 title: rawShow.attributes.Title, 
                 text: rawShow.attributes.Text,
                 year: rawShow.attributes.Year,
+                odd: i % 2,
                 images
             }
             shows.push(show);

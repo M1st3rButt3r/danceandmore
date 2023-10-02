@@ -23,12 +23,12 @@ export default function Card(props) {
                     <p className="text-slate-400 font-semibold mb-1">{props.date}</p>
                     <h3 className="text-2xl font-bold mb-2">{props.title}</h3>
                     <p className="text-justify text-slate-700 mb-4">{props.abstract}</p>
-                    <div className="lg:absolute justify-end right-10 bottom-10 flex gap-2 text-slate-700 underline underline-offset-2"><p className="">Mehr</p><FontAwesomeIcon  size="xl" icon={faArrowRight} className="text-sm" /></div>
+                    <div className="justify-end right-10 bottom-10 flex gap-2 text-slate-700 underline underline-offset-2"><p className="">Mehr</p><FontAwesomeIcon  size="xl" icon={faArrowRight} className="text-sm" /></div>
                     
                 </div>
                 
 
-                <div className={"m-auto rounded-lg xl:w-96 xl:h-96 sm:w-80 sm:h-80 w-60 h-60  shrink-0 overflow-hidden hidden" + (props.right == true? " lg:block" : "")}>
+                <div className={"m-auto ml-10 rounded-lg xl:w-96 xl:h-96 sm:w-80 sm:h-80 w-60 h-60  shrink-0 overflow-hidden hidden" + (props.right == true? " lg:block" : "")}>
                 <Image
                     src={props.imageUrl}
                     width={0}

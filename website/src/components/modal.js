@@ -28,7 +28,7 @@ export default function Modal(props) {
                     <h3 className="text-3xl font-bold mb-0">{props.title}</h3>
                 </div>
 
-                <div className="overflow-y-scroll h-5/6 w-full small-scrollbar">
+                <div className="overflow-y-auto h-5/6 w-full small-scrollbar">
                     {/*<div className="my-7 m-auto rounded-lg xl:w-96 xl:h-96 sm:w-80 sm:h-80 w-60 h-60 overflow-hidden">
                         <Image
                             src={props.imageUrl}
