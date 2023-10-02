@@ -34,4 +34,19 @@ async function getShows() {
     }
 }
 
-export default getShows;
+async function getShowPage() {
+    try {
+        const data = (await axios.get(baseURL + "/api/show-page")).data.data;
+
+        return {
+            title: data.attributes.Title,
+            text: data.attributes.Text
+        }
+    }
+    catch (err) {
+        console.log(err);
+        return [];
+    }
+}
+
+export {getShows, getShowPage};

@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function ImageCard(props) {
     return (
-        <div className="-translate-z-10 bg-slate-100 rounded-2xl w-full h-96 mx-auto overflow-hidden transition-transform hover:scale-105">
+        <div className="max-w-6xl bg-slate-100 rounded-2xl w-full h-96 mx-auto overflow-hidden transition-transform hover:scale-105">
             <Image
                 src={"http://127.0.0.1:1337/uploads/das_herz_des_ozeans_b1ef838d2b.jpg"}
                 width={0}

@@ -11,7 +11,3 @@
     background: #cbd5e1;
     border-radius: 9999px;
 }
-
-.-translate-z-10 {
-    transform: translateZ(-10);
-}

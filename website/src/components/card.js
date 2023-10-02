@@ -7,7 +7,7 @@ export default function Card(props) {
     return (
         <Link scroll={false} href={props.href}>
             <div className="relative z-0 hover:scale-105 transition-transform bg-slate-100 rounded-2xl md:p-10 p-5 flex flex-col lg:flex-row flex-initial max-w-6xl mx-auto w-full">
-                <div className={" rounded-lg m-auto  xl:w-96 xl:h-96 sm:w-80 sm:h-80 w-60 h-60   shrink-0 overflow-hidden" + (props.right == true? " lg:hidden" : "")}>
+                <div className={" rounded-lg m-auto xl:w-96 xl:h-96 sm:w-80 sm:h-80 w-60 h-60 shrink-0 overflow-hidden" + (props.right == true? " lg:hidden" : "")}>
                 <Image
                     src={props.imageUrl}
                     width={0}
@@ -23,7 +23,7 @@ export default function Card(props) {
                     <p className="text-slate-400 font-semibold mb-1">{props.date}</p>
                     <h3 className="text-2xl font-bold mb-2">{props.title}</h3>
                     <p className="text-justify text-slate-700 mb-4">{props.abstract}</p>
-                    <div className="lg:absolute justify-end right-10 bottom-10 flex gap-2 text-slate-700 underline underline-offset-2"><p className="">Mehr</p><FontAwesomeIcon  size="xl" icon={faArrowRight} /></div>
+                    <div className="lg:absolute justify-end right-10 bottom-10 flex gap-2 text-slate-700 underline underline-offset-2"><p className="">Mehr</p><FontAwesomeIcon  size="xl" icon={faArrowRight} className="text-sm" /></div>
                     
                 </div>
                 
