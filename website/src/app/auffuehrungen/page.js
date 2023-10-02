@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar";
 import { getShows, getShowPage } from "@/requests";
 import Modal from "@/components/modal";
 
-export default async function Auffuehrungen(props) {
+export default async function Shows(props) {
   const shows = await getShows();
   const showPage = await getShowPage();
   return (

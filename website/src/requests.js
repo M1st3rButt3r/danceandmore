@@ -12,7 +12,7 @@ async function getShows() {
                 const rawImage = rawShow.attributes.Images.data[j];
                 let image = {
                     id: rawImage.id,
-                    url: baseURL + rawImage.attributes.formats.medium.url
+                    url: baseURL + getMediumImage(rawImage)
                 }
                 images.push(image);
             }
@@ -50,4 +50,63 @@ async function getShowPage() {
     }
 }
 
-export {getShows, getShowPage};
+async function getOffers() {
+    try {
+        const data = (await axios.get(baseURL + "/api/offers?populate=*")).data.data;
+        let offers = [];
+        for (let i = 0; i < data.length; i++) {
+            const rawOffer = data[i];
+            let offer = {
+                id: rawOffer.id, 
+                title: rawOffer.attributes.Title, 
+                description: rawOffer.attributes.Description,
+                coverUrl: baseURL + getMediumImage(rawOffer.attributes.Cover.data),
+                link: rawOffer.attributes.Link
+            }
+            offers.push(offer);
+        }
+        return offers;
+    }
+    catch (err) {
+        console.log(err);
+        return [];
+    }
+}
+
+async function getOfferPage() {
+    try {
+        const data = (await axios.get(baseURL + "/api/offer-page")).data.data;
+
+        return {
+            title: data.attributes.Title,
+            text: data.attributes.Text
+        }
+    }
+    catch (err) {
+        console.log(err);
+        return [];
+    }
+}
+
+function getMediumImage(image){
+    if(image.attributes.formats.medium == undefined){
+        return getSmallImage(image);
+    }
+    return image.attributes.formats.medium.url;
+}
+
+function getSmallImage(image){
+    if(image.attributes.formats.small == undefined){
+        return getThumbnailImage(image);
+    }
+    return image.attributes.formats.small.url;
+}
+
+function getThumbnailImage(image) {
+    if(image.attributes.formats.thumbnail == undefined){
+        return "";
+    }
+    return image.attributes.formats.thumbnail.url;
+}
+
+export {getShows, getShowPage, getOfferPage, getOffers};
