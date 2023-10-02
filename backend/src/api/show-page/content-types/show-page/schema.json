@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "show_pages",
+  "info": {
+    "singularName": "show-page",
+    "pluralName": "show-pages",
+    "displayName": "Show Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Text": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
