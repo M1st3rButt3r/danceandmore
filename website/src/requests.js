@@ -46,7 +46,10 @@ async function getShowPage() {
     }
     catch (err) {
         console.log(err);
-        return [];
+        return {
+            title: "",
+            text: ""
+        };
     }
 }
 
@@ -84,6 +87,61 @@ async function getOfferPage() {
     }
     catch (err) {
         console.log(err);
+        return {
+            title: "",
+            text: ""
+        };
+    }
+}
+
+async function getNewsPage() {
+    try {
+        const data = (await axios.get(baseURL + "/api/news-page")).data.data;
+
+        return {
+            title: data.attributes.Title,
+            text: data.attributes.Text
+        }
+    }
+    catch (err) {
+        console.log(err);
+        return {
+            title: "",
+            text: ""
+        };
+    }
+}
+
+async function getNews() {
+    try {
+        const data = (await axios.get(baseURL + "/api/newss?populate=*")).data.data;
+        let newss = [];
+        for (let i = 0; i < data.length; i++) {
+            const rawNews = data[i];
+            let images = [];
+            for (let j = 0; j < rawNews.attributes.Images.data.length; j++) {
+                const rawImage = rawNews.attributes.Images.data[j];
+                let image = {
+                    id: rawImage.id,
+                    url: baseURL + getMediumImage(rawImage)
+                }
+                images.push(image);
+            }
+
+            let news = {
+                id: rawNews.id, 
+                title: rawNews.attributes.Title, 
+                text: rawNews.attributes.Text,
+                date: rawNews.attributes.Date,
+                odd: i % 2,
+                images
+            }
+            newss.push(news);
+        }
+        return newss;
+    }
+    catch (err) {
+        console.log(err);
         return [];
     }
 }
@@ -109,4 +167,4 @@ function getThumbnailImage(image) {
     return image.attributes.formats.thumbnail.url;
 }
 
-export {getShows, getShowPage, getOfferPage, getOffers};
+export {getShows, getShowPage, getOfferPage, getOffers, getNewsPage, getNews};

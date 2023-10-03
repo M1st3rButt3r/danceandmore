@@ -677,6 +677,63 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiNewsNews extends Schema.CollectionType {
+  collectionName: 'newss';
+  info: {
+    singularName: 'news';
+    pluralName: 'newss';
+    displayName: 'News';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Text: Attribute.Text;
+    Date: Attribute.Date;
+    Images: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::news.news', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::news.news', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNewsPageNewsPage extends Schema.SingleType {
+  collectionName: 'news_pages';
+  info: {
+    singularName: 'news-page';
+    pluralName: 'news-pages';
+    displayName: 'News Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Text: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::news-page.news-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::news-page.news-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOfferOffer extends Schema.CollectionType {
   collectionName: 'offers';
   info: {
@@ -818,6 +875,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::news.news': ApiNewsNews;
+      'api::news-page.news-page': ApiNewsPageNewsPage;
       'api::offer.offer': ApiOfferOffer;
       'api::offer-page.offer-page': ApiOfferPageOfferPage;
       'api::show.show': ApiShowShow;

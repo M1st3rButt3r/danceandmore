@@ -19,7 +19,7 @@ export default function Card(props) {
                 </div>
     
                 
-                <div className="mt-4 lg:m-auto lg:ml-10">
+                <div className="mt-4 lg:m-auto lg:ml-10 w-full">
                     <p className="text-slate-400 font-semibold mb-1">{props.date}</p>
                     <h3 className="text-2xl font-bold mb-2">{props.title}</h3>
                     <p className="text-justify text-slate-700 mb-4">{props.abstract}</p>
